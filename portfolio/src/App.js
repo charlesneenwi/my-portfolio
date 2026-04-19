@@ -64,6 +64,7 @@ const SKILLS = [
 const PROJECTS = [
   {
     title: "AI Chat App",
+    image: "/ai-chat.png",
     description: "A fully functional AI chat interface built with React and the Gemini API. Features real-time AI responses, conversation history, localStorage persistence, typing indicator, and timestamps. Built with a premium dark UI.",
     tags: ["React", "Vite", "Gemini API", "Tailwind CSS"],
     live: "https://ai-chat-app-lovat.vercel.app",
@@ -72,6 +73,7 @@ const PROJECTS = [
   },
   {
     title: "Scenixa — AI SaaS Landing Page",
+    image: "/scenixa.png",
     description: "A seven-section SaaS landing page for an AI video generation platform. Features smooth animations, a pricing section, testimonials, and a fully responsive layout.",
     tags: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     live: "https://saas-landing-page-seven-zeta.vercel.app",
@@ -80,6 +82,7 @@ const PROJECTS = [
   },
   {
     title: "Recipe Finder App",
+    image: "/recipe.png",
     description: "A full-featured recipe discovery app where users can search meals, view detailed instructions, and save favourites. Powered by TheMealDB API.",
     tags: ["React", "Tailwind CSS", "TheMealDB API"],
     live: "https://recipe-finder-react-nu.vercel.app/",
@@ -430,34 +433,45 @@ function Projects({ T }) {
                 </span>
               )}
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "2rem", alignItems: "start" }} className="project-inner">
-                <div>
-                  <h3 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", color: T.text, margin: "0 0 0.75rem", letterSpacing: "0.04em" }}>{project.title}</h3>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.05rem", color: T.textMuted, lineHeight: 1.8, margin: "0 0 1.5rem", maxWidth: 580 }}>{project.description}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                    {project.tags.map(tag => (
-                      <span key={tag} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: T.accent, background: T.tag, border: `1px solid ${T.border}`, padding: "0.3rem 0.8rem" }}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
+              {/* Project Image */}
+<div style={{ width: "100%", height: 220, overflow: "hidden", marginBottom: "2rem", border: `1px solid ${T.border}` }}>
+  <img
+    src={project.image}
+    alt={project.title}
+    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", transition: "transform 0.6s ease" }}
+    onMouseEnter={e => e.target.style.transform = "scale(1.04)"}
+    onMouseLeave={e => e.target.style.transform = "scale(1)"}
+  />
+</div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", minWidth: 140 }}>
-                  <a href={project.live} target="_blank" rel="noreferrer"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: T.accentContrast, background: T.accent, padding: "0.75rem 1.5rem", textDecoration: "none", textAlign: "center", transition: "opacity 0.2s", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem" }}
-                    onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
-                    onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-                  >
-                    Live Demo <ArrowIcon color={T.accentContrast} size={12} />
-                  </a>
-                  <a href={project.github} target="_blank" rel="noreferrer"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.text, border: `1px solid ${T.border}`, padding: "0.75rem 1.5rem", textDecoration: "none", textAlign: "center", transition: "all 0.2s", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem" }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = T.accent; e.currentTarget.style.color = T.accent; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.text; }}
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
+<div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "2rem", alignItems: "start" }} className="project-inner">
+  <div>
+    <h3 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", color: T.text, margin: "0 0 0.75rem", letterSpacing: "0.04em" }}>{project.title}</h3>
+    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.05rem", color: T.textMuted, lineHeight: 1.8, margin: "0 0 1.5rem", maxWidth: 580 }}>{project.description}</p>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+      {project.tags.map(tag => (
+        <span key={tag} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: T.accent, background: T.tag, border: `1px solid ${T.border}`, padding: "0.3rem 0.8rem" }}>{tag}</span>
+      ))}
+    </div>
+  </div>
+
+  <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", minWidth: 140 }}>
+    <a href={project.live} target="_blank" rel="noreferrer"
+      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: T.accentContrast, background: T.accent, padding: "0.75rem 1.5rem", textDecoration: "none", textAlign: "center", transition: "opacity 0.2s", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem" }}
+      onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+      onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+    >
+      Live Demo <ArrowIcon color={T.accentContrast} size={12} />
+    </a>
+    <a href={project.github} target="_blank" rel="noreferrer"
+      style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.text, border: `1px solid ${T.border}`, padding: "0.75rem 1.5rem", textDecoration: "none", textAlign: "center", transition: "all 0.2s", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem" }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = T.accent; e.currentTarget.style.color = T.accent; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.text; }}
+    >
+      GitHub
+    </a>
+  </div>
+</div>
             </div>
           ))}
         </div>
