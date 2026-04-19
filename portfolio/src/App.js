@@ -63,12 +63,28 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+    title: "AI Chat App",
+    description: "A fully functional AI chat interface built with React and the Gemini API. Features real-time AI responses, conversation history, localStorage persistence, typing indicator, and timestamps. Built with a premium dark UI.",
+    tags: ["React", "Vite", "Gemini API", "Tailwind CSS"],
+    live: "https://ai-chat-app-lovat.vercel.app",
+    github: "https://github.com/charlesneenwi/ai-chat-app",
+    featured: true,
+  },
+  {
+    title: "Scenixa — AI SaaS Landing Page",
+    description: "A seven-section SaaS landing page for an AI video generation platform. Features smooth animations, a pricing section, testimonials, and a fully responsive layout.",
+    tags: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+    live: "https://saas-landing-page-seven-zeta.vercel.app",
+    github: "https://github.com/charlesneenwi/saas-landing-page",
+    featured: false,
+  },
+  {
     title: "Recipe Finder App",
     description: "A full-featured recipe discovery app where users can search meals, view detailed instructions, and save favourites. Powered by TheMealDB API.",
     tags: ["React", "Tailwind CSS", "TheMealDB API"],
     live: "https://recipe-finder-react-nu.vercel.app/",
     github: "https://github.com/charlesneenwi",
-    featured: true,
+    featured: false,
   },
 ];
 
@@ -445,7 +461,6 @@ function Projects({ T }) {
             </div>
           ))}
         </div>
-
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.85rem", color: T.textFaint, marginTop: "2.5rem", fontStyle: "italic", letterSpacing: "0.02em" }}>
           — More projects in progress
         </p>
